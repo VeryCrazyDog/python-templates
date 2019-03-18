@@ -14,6 +14,7 @@
 # configuration.unload_configuration()
 
 from util import logger
+from configuration import ini_config as config
 import definitions
 
 logger.info('Hello World!')
@@ -22,5 +23,7 @@ logger.info('Info')
 logger.warn('Warning')
 logger.error('Error')
 logger.info(f'Root directory: {definitions.ROOT_DIR}')
-logger.info(f'Config directory: {definitions.CONFIG_DIR}')
+#logger.info(f'Config directory: {definitions.CONFIG_DIR}')
+logger.info(config.get('default', 'message'))
+
 # logger.info(f'Host config directory: {definitions.HOST_CONFIG_DIR}')
