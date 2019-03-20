@@ -19,11 +19,11 @@ __log_level = {
     'CRITICAL': logging.CRITICAL
 }.get(os.getenv(ENV_NAME_LOG_LEVEL, '').upper(), DEFAULT_LOG_LEVEL)
 
-# Initialize logger
+# Set module variable for external import
+logger = logging.getLogger()
+
+# Initialization
 logging.basicConfig(
     level = __log_level,
     format = '%(asctime)s [%(levelname)s] %(message)s'
 )
-
-# Set logger to module variable for external import
-logger = logging.getLogger()

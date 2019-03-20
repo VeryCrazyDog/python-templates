@@ -1,1 +1,1 @@
-from .ini_config import ini_config
+from .config_reader import config_reader
