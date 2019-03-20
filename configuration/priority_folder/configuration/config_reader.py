@@ -11,9 +11,6 @@ CONFIG_DIR_NAME = 'config'
 LOCAL_CONFIG_DIR_NAME = 'local'
 DEFAULT_CONFIG_FILENAME = 'config.ini'
 
-# Constant
-ENV_NAME_LOG_LEVEL = 'LOG_LEVEL'
-
 # Internal module variable
 __logger = None
 __config_dir = None
@@ -56,4 +53,5 @@ def get_configuration(filename = None):
 
 def unload_configuration():
     global __configuration
-    __configuration = None
+    __configuration = {}
+    __config_dir = None

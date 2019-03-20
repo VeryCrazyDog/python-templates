@@ -43,3 +43,7 @@ def get_configuration():
         config.read(path)
         __configuration = config
     return config
+
+def unload_configuration():
+    global __configuration
+    __configuration = None
