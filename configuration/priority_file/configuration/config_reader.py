@@ -38,7 +38,7 @@ def get_configuration():
     if __configuration == None:
         path = __find_config_file()
         if __logger is not None:
-            __logger.debug(f'Reading configuration file at: {path}')
+            __logger.debug(f'Reading configuration file from: {path}')
         config = configparser.ConfigParser()
         config.read(path)
         __configuration = config

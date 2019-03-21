@@ -45,7 +45,7 @@ def get_configuration(filename = None):
                 __logger.debug(f'Effective configuration directory: {__config_dir}')
         path = os.path.join(__config_dir, filename)
         if __logger is not None:
-            __logger.debug(f'Reading configuration file at: {path}')
+            __logger.debug(f'Reading configuration file from: {path}')
         config = configparser.ConfigParser()
         config.read(path)
         __configuration[filename] = config
