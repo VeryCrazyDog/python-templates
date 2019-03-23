@@ -1,6 +1,6 @@
 # Import build-in packages
-import os
 import logging
+import os
 
 # Module configuration
 DEFAULT_LOG_LEVEL = logging.INFO

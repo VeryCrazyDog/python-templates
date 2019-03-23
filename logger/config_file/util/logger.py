@@ -1,8 +1,8 @@
 # Import build-in packages
-import logging
-import os
 import json
+import logging
 import logging.config
+import os
 
 # Import our packages
 from definitions import ROOT_DIR

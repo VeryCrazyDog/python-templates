@@ -1,7 +1,8 @@
 # Import build-in packages
+import configparser
+import logging
 import os
 import socket
-import configparser
 
 # Import our packages
 from definitions import ROOT_DIR
@@ -12,7 +13,6 @@ LOCAL_CONFIG_DIR_NAME = 'local'
 DEFAULT_CONFIG_FILENAME = 'config.ini'
 
 # Internal module variable
-__logger = None
 __config_dir = None
 __configuration = {}
 
@@ -29,10 +29,6 @@ def __find_config_dir():
     return result
 
 # Public functions
-def set_logger(logger):
-    global __logger
-    __logger = logger
-
 def get_configuration(filename = None):
     if filename == None:
         filename = DEFAULT_CONFIG_FILENAME
@@ -41,11 +37,9 @@ def get_configuration(filename = None):
         global __config_dir
         if __config_dir == None:
             __config_dir = __find_config_dir()
-            if __logger is not None:
-                __logger.debug(f'Effective configuration directory: {__config_dir}')
+            logging.debug(f'Effective configuration directory: {__config_dir}')
         path = os.path.join(__config_dir, filename)
-        if __logger is not None:
-            __logger.debug(f'Reading configuration file from: {path}')
+        logging.debug(f'Reading configuration file from: {path}')
         config = configparser.ConfigParser()
         config.read(path)
         __configuration[filename] = config

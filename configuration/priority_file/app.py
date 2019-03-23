@@ -1,16 +1,10 @@
-# Import build-in packages
+# Run demo
 import logging
+from configuration import config_reader
 
-# Initialization
 logging.basicConfig(
     level = logging.DEBUG,
     format = '%(asctime)s [%(levelname)s] %(message)s'
 )
-logger = logging.getLogger()
-
-# Run demo
-from configuration import config_reader
-
-config_reader.set_logger(logger)
 config = config_reader.get_configuration()
-logger.info(config.get('default', 'message'))
+logging.info(config.get('default', 'message'))

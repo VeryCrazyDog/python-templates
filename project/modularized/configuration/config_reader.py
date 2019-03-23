@@ -1,7 +1,7 @@
 # Import build-in packages
+import configparser
 import os
 import socket
-import configparser
 
 # Import our packages
 from definitions import ROOT_DIR

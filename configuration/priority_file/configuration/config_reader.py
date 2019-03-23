@@ -1,7 +1,8 @@
 # Import build-in packages
+import configparser
+import logging
 import os
 import socket
-import configparser
 
 # Import our packages
 from definitions import ROOT_DIR
@@ -13,7 +14,6 @@ LOCAL_CONFIG_BASENAME = 'local'
 DEFAULT_FILE_EXT = '.ini'
 
 # Internal module variable
-__logger = None
 __configuration = None
 
 # Private functions
@@ -29,16 +29,11 @@ def __find_config_file():
     return result
 
 # Public functions
-def set_logger(logger):
-    global __logger
-    __logger = logger
-
 def get_configuration():
     global __configuration
     if __configuration == None:
         path = __find_config_file()
-        if __logger is not None:
-            __logger.debug(f'Reading configuration file from: {path}')
+        logging.debug(f'Reading configuration file from: {path}')
         config = configparser.ConfigParser()
         config.read(path)
         __configuration = config
